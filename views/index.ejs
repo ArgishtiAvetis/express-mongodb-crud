@@ -1,0 +1,22 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<h1><%= title %></h1>
+<ul>
+    <%
+    if (errors) {
+      errors.forEach((error) => { %>
+      <li><%= error.msg %></li>
+    <% }) } %>
+</ul>
+<form method="post" action="/add">
+  <input type="text" name="nickname" />
+  <button type="submit">Add Nickname</button>
+</form>
+<ul>
+    <% nicknames.forEach((nickname) => { %>
+      <li><%= nickname.nickname%> - <a href="#" data-id="<%= nickname._id %>" class='delete'>Delete</a></li>
+    <% }) %>
+</ul>
